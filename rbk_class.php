@@ -31,11 +31,29 @@
 				mozallowfullscreen 
 				allowfullscreen>
 			</iframe>';
+			return $iframe;
+		}
+		public function filter_video_links( $content ){
+			
+			$youtube_link = '@^\s*https?://(?:www\.)?(?:youtube.com/watch\?|youtu.be/)([^\s"]+)\s*$@im';
+			$vimeo_link = '@^\s*https?://(?:www\.)?(?:vimeo.com/)@im';
+
+			if( preg_match( $vimeo_link, $content ) ) {
+				// vimeo
+				$content = preg_replace( $vimeo_link, 'http://player.vimeo.com/video/', $content );
+				return $content;
+			} else if ( preg_match( $youtube_link, $content ) ) {
+				// youtube
+				$content = str_replace( 'http://www.youtube.com/watch?v=', 'http://www.youtube.com/embed/', $content );
+				return $content;
+			} else {
+				return $content;
+			}
 
 		}
 
 	}
-	$rbk = new RbkHelperFunctions();
+	
 
 
 ?>
