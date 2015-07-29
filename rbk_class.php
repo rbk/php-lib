@@ -19,6 +19,23 @@
 			}
 			return $string;
 		}
+
+		public function rbkVimeo( $src, $size = array(500,281) ){
+			$default = 'https://player.vimeo.com/video/119144844?badge=0';
+			$iframe = '<iframe 
+				src="https://player.vimeo.com/video/119144844?badge=0" 
+				width="'.$size[0].'" 
+				height="'.$size[1].'" 
+				frameborder="0" 
+				webkitallowfullscreen 
+				mozallowfullscreen 
+				allowfullscreen>
+			</iframe>';
+
+		}
+
 	}
+	$rbk = new RbkHelperFunctions();
+
 
 ?>
