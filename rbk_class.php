@@ -53,6 +53,17 @@
 			}
 
 		}
+		public function selected_option( $array, $option ){
+			$output = '';
+			for( $i=0; $i<count($array); $i++ ){
+				$selected = '';
+				if( preg_match( '/' . $option . '/', $array[$i]) ){
+					$selected = 'selected';
+				}
+				$output.= '<option '.$selected.'>'.$array[$i].'</option>';
+			}	
+			return $output;
+		}
 
 	}
 	
