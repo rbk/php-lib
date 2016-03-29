@@ -64,6 +64,19 @@
 			}	
 			return $output;
 		}
+		/**
+		 * 	Futureproof copyright
+		 * 
+		 * */
+		public function copyright( $start ) {
+			$current_year = date('Y');
+			if( $current_year == $start ){
+				return 'Copyright ' . $current_year;
+			} else {
+				return 'Copyright ' . $start . ' - ' . $current_year;
+			}
+		}
+
 
 	}
 	
